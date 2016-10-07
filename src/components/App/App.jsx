@@ -1,18 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+
+import Post from 'Post/Post';
+import PostForm from 'Post/Form/PostForm';
+
+const data = [
+  { id: 1, name: 'Name 1', description: 'Description 1' },
+  { id: 2, name: 'Name 2', description: 'Description 2' },
+  { id: 3, name: 'Name 3', description: 'Description 3' }
+];
 
 export default class App extends Component {
 
-  static propTypes = {
-    children: PropTypes.array
-  };
-
-  static defaultProps = {
-    children: []
-  };
-
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div>
+        <Post data={data} />
+        <PostForm />
+      </div>
     );
   }
 }
