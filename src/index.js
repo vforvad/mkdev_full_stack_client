@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestComp from 'components/TestComp';
+import App from 'App/App';
+import Post from 'Post/Post';
+import PostForm from 'Post/Form/PostForm';
 
-ReactDOM.render(<Test />, document.getElementById('app'));
+ReactDOM.render(<App> <Post /><PostForm /> </App>, document.getElementById('app'));

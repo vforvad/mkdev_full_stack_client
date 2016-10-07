@@ -43,11 +43,12 @@ module.exports = {
     extensions: ['', '.js', '.json', '.jsx'],
     modulesDirectories: [
       'node_modules',
-      '../src'
+      '../src',
+      '../src/components'
     ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, '../', 'src'),
+    contentBase: path.resolve(__dirname, '..', 'src'),
     noInfo: true,
     inline: true,
     stats: { colors: true },
