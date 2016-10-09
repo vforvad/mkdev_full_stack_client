@@ -1,24 +1,28 @@
 import React, { Component, PropTypes } from 'react';
 
+import {  getPosts } from 'actions/post';
+
 import PostItem from 'Post/Item/PostItem';
 
 export default class Post extends Component {
 
-  static propTypes = {
-    data: PropTypes.array
-  }
+  state = {
+    posts: []
+  };
 
-  static defaultProps = {
-    data: []
+  componentWillMount() {
+    getPosts().then((posts) => {
+      this.setState({ posts });
+    });
   }
 
   render() {
-    const { data } = this.props;
+    const { posts } = this.state;
 
     return (
       <div>
-        {data.map((item) => {
-          return <PostItem key={item.id} id={item.id} name={item.name} description={item.description} />;
+        {posts.map((item) => {
+          return <PostItem key={item.id} id={item.id} name={item.title} description={item.body} username={item.username} />;
         })}
       </div>
     );
