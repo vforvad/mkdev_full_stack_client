@@ -3,18 +3,25 @@ var util = require('util');
 var webpack = require('webpack');
 var pack = require('../package.json');
 
+var DEV = process.env.NODE_ENV === 'development';
+
+var entry = {
+  app: [
+    './src/index.js'
+  ]
+};
+
+if (DEV) {
+  entry.app.push('webpack/hot/dev-server');
+  entry.app.push(util.format(
+    'webpack-dev-server/client?http://%s:%d',
+    pack.config.devHost,
+    pack.config.devPort
+  ));
+}
+
 module.exports = {
-  entry: {
-    app: [
-      './src/index.js',
-      'webpack/hot/dev-server',
-      util.format(
-        'webpack-dev-server/client?http://%s:%d',
-        pack.config.devHost,
-        pack.config.devPort
-      )
-    ]
-  },
+  entry: entry,
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',

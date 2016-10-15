@@ -9,7 +9,8 @@
     "lint:js:file": "eslint --ext .js --ext .jsx ",
     "lint:js:fix": "eslint --ext .js --ext .jsx --fix ./src",
     "lint": "eslint .",
-    "test": "NODE_PATH=./app NODE_ENV=test mocha ./spec --compilers js:babel-core/register --require ./spec/setup.js --recursive"
+    "test": "NODE_PATH=./app NODE_ENV=test mocha ./spec --compilers js:babel-core/register --require ./spec/setup.js --recursive",
+    "build": "NODE_ENV=production $(npm bin)/webpack --colors --progress --config ./config/webpack.config"
   },
   "config": {
     "buildDir": "./build",
