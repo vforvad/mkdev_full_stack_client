@@ -19,11 +19,10 @@ if (DEV) {
     pack.config.devPort
   ));
 }
-
 module.exports = {
   entry: entry,
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'production'),
     filename: 'bundle.js',
     publicPath: '/'
   },
